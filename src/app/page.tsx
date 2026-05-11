@@ -299,8 +299,8 @@ export default function Home() {
               >
 <h1
   className="
-    text-5xl
-    md:text-[4.8rem]
+    text-4xl
+    md:text-[4rem]
     leading-[0.9]
     tracking-[-0.08em]
     font-black
