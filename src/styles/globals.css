@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Limpieza básica de estilos base para que tus colores destaquen */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

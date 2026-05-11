@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Minimalista: Monocromática con acento en azul sobrio */
+  --color-brand-dark: #0f172a;    /* Un azul noche profundo, casi negro */
+  --color-brand-primary: #1e293b; /* Slate oscuro para elementos principales */
+  --color-brand-accent: #3b82f6;  /* Azul sobrio (puedes usar #2563eb para algo más serio) */
+  --color-brand-light: #f8fafc;   /* Blanco roto para fondos (evita el blanco puro #fff) */
+  --color-brand-muted: #64748b;   /* Gris azulado para textos secundarios o bordes */
+
+  /* Tu tipografía Grotesque */
+  --font-grotesque: var(--font-grotesque), sans-serif;
+}
+
+/* Limpieza básica */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-dark);
+}
