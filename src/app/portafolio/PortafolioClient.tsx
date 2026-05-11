@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import {
   motion,
+  Variants,
 } from "framer-motion";
 
 import {
@@ -15,7 +16,7 @@ import {
 // ANIMATIONS
 // =========================================
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
@@ -30,7 +31,7 @@ const fadeUp = {
   },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: {},
   show: {
     transition: {
