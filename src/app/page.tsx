@@ -200,7 +200,7 @@ export default function Home() {
           transition={{
             duration: 14,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.42, 0, 0.58, 1],
           }}
           className="
             absolute
@@ -222,7 +222,7 @@ export default function Home() {
           transition={{
             duration: 18,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.42, 0, 0.58, 1]
           }}
           className="
             absolute
@@ -473,7 +473,7 @@ export default function Home() {
                   transition={{
                     duration: 5,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: [0.42, 0, 0.58, 1],
                   }}
                   className="
                     absolute
@@ -500,7 +500,7 @@ export default function Home() {
                   transition={{
                     duration: 6,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: [0.42, 0, 0.58, 1],
                   }}
                   className="
                     absolute

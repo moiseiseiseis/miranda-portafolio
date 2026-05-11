@@ -78,7 +78,7 @@ export default function PortafolioClient({
           transition={{
             duration: 16,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.42, 0, 0.58, 1],
           }}
           className="
             absolute
@@ -101,7 +101,7 @@ export default function PortafolioClient({
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.42, 0, 0.58, 1],
           }}
           className="
             absolute
