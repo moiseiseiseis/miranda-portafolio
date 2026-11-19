@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import type { Proyecto } from "../../data/proyectos";
+
 import {
   motion,
   Variants,
@@ -47,7 +49,7 @@ const staggerContainer: Variants = {
 export default function PortafolioClient({
   proyectos,
 }: {
-  proyectos: any[];
+  proyectos: Proyecto[];
 }) {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -244,7 +246,7 @@ export default function PortafolioClient({
           {proyectos && proyectos.length > 0 ? (
             proyectos.map((proyecto, index) => (
               <motion.div
-                key={proyecto.id}
+                key={proyecto.slug}
                 variants={fadeUp}
               >
 

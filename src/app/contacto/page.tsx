@@ -18,7 +18,6 @@ import {
   Globe,
 } from "lucide-react";
 
-import { supabase } from "../../lib/supabase";
 
 // =========================================
 // ANIMATIONS
@@ -107,26 +106,6 @@ export default function Contacto() {
 
     try {
 
-      // Save in Supabase
-      const {
-        error: supabaseError,
-      } = await supabase
-        .from("mensajes")
-        .insert([
-          {
-            nombre: formData.nombre,
-            email: formData.email,
-            asunto: formData.asunto,
-            mensaje: formData.mensaje,
-          },
-        ]);
-
-      if (supabaseError) {
-        throw new Error(
-          "Error al guardar el mensaje."
-        );
-      }
-
       // Send email
       const response = await fetch(
         "/api/contact",
@@ -143,7 +122,7 @@ export default function Contacto() {
       );
 
       if (!response.ok) {
-        console.error(
+        throw new Error(
           "No se pudo enviar el correo."
         );
       }

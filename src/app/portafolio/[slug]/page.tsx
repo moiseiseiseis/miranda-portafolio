@@ -8,7 +8,13 @@ import {
   Layers3,
 } from "lucide-react";
 
-import { supabase } from "../../../lib/supabase";
+import { getProyecto, proyectos } from "../../../data/proyectos";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return proyectos.map((p) => ({ slug: p.slug }));
+}
 
 // =========================================
 // PAGE
@@ -26,16 +32,9 @@ export default async function ProyectoDetalle({
   // FETCH PROJECT
   // =========================================
 
-  const {
-    data: proyecto,
-    error,
-  } = await supabase
-    .from("proyectos")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  const proyecto = getProyecto(slug);
 
-  if (error || !proyecto) {
+  if (!proyecto) {
     notFound();
   }
 
