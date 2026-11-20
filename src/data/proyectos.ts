@@ -1,148 +1,176 @@
-// =========================================
-// PROYECTOS DEL PORTAFOLIO
-// =========================================
 // Para agregar o editar un proyecto, modifica este arreglo y haz deploy.
-// El orden del arreglo es el orden en que se muestran (primero = arriba).
-//
-// - slug: la URL del proyecto (/portafolio/<slug>). Único, sin espacios.
-// - imagen_miniatura: ruta dentro de /public (ej. "/proyectos/smart.png").
-// - contenido_completo: HTML para la página de detalle (opcional).
+// El orden del arreglo es el orden en que se muestran.
+// Las secciones opcionales que queden vacías no se muestran en la página.
 
 export type Categoria =
-  | "Desarrollo Web"
-  | "Móvil & Hardware"
-  | "Software & Datos";
+  | "Investigación"
+  | "Dispositivos médicos"
+  | "Plataformas"
+  | "Proyectos académicos"
+  | "Freelance";
 
 export interface Proyecto {
   slug: string;
   titulo: string;
   categoria: Categoria;
   descripcion_corta: string;
+  problema?: string;
+  rol?: string;
+  trabajo?: string[];
+  estado?: string;
   stack_tecnologico: string[];
+  colaboradores?: string[];
   imagen_miniatura?: string;
-  contenido_completo?: string;
   url_demo?: string;
   url_repositorio?: string;
 }
 
 export const proyectos: Proyecto[] = [
-  // ---------- Desarrollo Web ----------
   {
-    slug: "miranda-ris",
-    titulo: "MIRANDA",
-    categoria: "Desarrollo Web",
+    slug: "eeg-hmm",
+    titulo: "Investigación EEG con HMM",
+    categoria: "Investigación",
     descripcion_corta:
-      "Plataforma web tipo RIS/PACS para la gestión de imágenes radiológicas y visualización de estudios DICOM.",
-    stack_tecnologico: ["Next.js", "React", "DICOM"],
-    imagen_miniatura: "/proyectos/miranda-ris.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Plataforma web tipo RIS/PACS para la gestión de imágenes radiológicas y visualización de estudios DICOM.</p>
-      <p><strong>Enfoque:</strong> salud digital, gestión de datos médicos y visualización web.</p>
-    `,
+      "Proyecto en curso que estudia la dinámica cerebral durante el control inhibitorio mediante modelos ocultos de Markov aplicados a EEG.",
+    problema:
+      "Caracterizar cómo se organiza la actividad cerebral en el tiempo durante una tarea Go/NoGo, en adultos y adolescentes.",
+    rol: "Asistente de investigación. Mi línea principal es el enfoque TDE-HMM (time-delay embedding).",
+    trabajo: [
+      "Desarrollo del pipeline de análisis.",
+      "Presentación de avances ante el grupo de investigación (noviembre de 2026).",
+      "Redacción de un manuscrito en preparación.",
+    ],
+    estado: "En curso. Manuscrito en preparación.",
+    stack_tecnologico: ["Python", "hmmlearn", "scikit-learn", "Procesamiento de EEG"],
+    colaboradores: [
+      "Laboratorio de Bioinformática e Inteligencia Artificial (BIL, CUCEI), Universidad de Guadalajara",
+      "Laboratorio de Biohacking (CUTLAJO), Universidad de Guadalajara",
+      "Asesor: Dr. Omar Paredes",
+    ],
+    imagen_miniatura: "/proyectos/eeg-hmm.png",
   },
   {
-    slug: "purple-bananas",
-    titulo: "Purple Bananas",
-    categoria: "Desarrollo Web",
+    slug: "rumbo-rehab",
+    titulo: "Rumbo Rehab",
+    categoria: "Dispositivos médicos",
     descripcion_corta:
-      "E-commerce y portafolio digital desarrollado a medida para una artista plástica.",
-    stack_tecnologico: ["Next.js", "Prisma", "Stripe"],
-    imagen_miniatura: "/proyectos/purple.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>E-commerce y portafolio digital desarrollado a medida para una artista plástica, con pasarela de pagos integrada con Stripe.</p>
-    `,
+      "Wearable de muñeca que reconoce ejercicios de rehabilitación de hombro, cuenta repeticiones y mide adherencia. Finalista de Jalisco MedTech 2026.",
+    problema:
+      "Los fisioterapeutas no tienen una forma objetiva de saber si el paciente hizo en casa los ejercicios prescritos.",
+    rol: "Desarrollo completo de hardware y software.",
+    trabajo: [
+      "Dispositivo con IMU y TinyML (Seeed XIAO nRF52840 Sense).",
+      "App del paciente (Flutter), backend (NestJS) y panel del fisioterapeuta (Next.js).",
+      "MVP probado de punta a punta con el dispositivo real.",
+      "Retroalimentación positiva de fisioterapeutas.",
+      "Ficha regulatoria preliminar (COFEPRIS).",
+    ],
+    estado: "Entre los 6 finalistas del programa Jalisco MedTech 2026.",
+    stack_tecnologico: [
+      "Seeed XIAO nRF52840 Sense",
+      "IMU",
+      "TinyML",
+      "BLE",
+      "Flutter",
+      "NestJS",
+      "Next.js",
+    ],
+    // [DATO PENDIENTE: capturas]
   },
   {
     slug: "taller-programacion",
-    titulo: "Taller de Programación para No Programadores",
-    categoria: "Desarrollo Web",
+    titulo: "Plataforma de enseñanza de programación",
+    categoria: "Plataformas",
     descripcion_corta:
-      "Aplicación web para la gestión de comunidad, registro de estudiantes y administración de eventos educativos.",
-    stack_tecnologico: ["Next.js", "Supabase"],
+      "Plataforma gratuita para enseñar programación a principiantes de distintas carreras (servicio social).",
+    rol: "Desarrollo completo de la plataforma y del currículo.",
+    trabajo: [
+      "LMS completo (Next.js + Supabase).",
+      "Currículo con los talleres Fundamentos de Computación, Lógica, Python, Metacognición y Algoritmia.",
+    ],
+    estado: "En curso (2025 – presente).",
+    stack_tecnologico: ["Next.js", "Supabase", "TypeScript"],
+    colaboradores: [
+      "CUTLAJO",
+      "Rama Estudiantil IEEE",
+      "Supervisión: Dra. María Teresa Romero Gutiérrez",
+    ],
     imagen_miniatura: "/proyectos/taller-progra.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Aplicación web enfocada en la gestión de comunidad, registro de estudiantes y administración de eventos educativos.</p>
-    `,
-  },
-
-  // ---------- Móvil & Hardware ----------
-  {
-    slug: "smartknee",
-    titulo: "SmartKnee / Goniómetro Digital",
-    categoria: "Móvil & Hardware",
-    descripcion_corta:
-      "Ecosistema integral de rehabilitación y medición de rango de movimiento (ROM) para rodilla.",
-    stack_tecnologico: ["ESP32", "IMU", "Flutter", "NestJS", "Next.js"],
-    imagen_miniatura: "/proyectos/smart.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Ecosistema integral de rehabilitación y medición de rango de movimiento (ROM) para rodilla.</p>
-      <h3>Arquitectura</h3>
-      <ul>
-        <li>Hardware con ESP32 y sensores IMU</li>
-        <li>Aplicación móvil en Flutter</li>
-        <li>API backend en NestJS</li>
-        <li>Portal web en Next.js</li>
-      </ul>
-    `,
   },
   {
-    slug: "monitor-rehabilitacion-hombro",
-    titulo: "Monitor de Rehabilitación de Hombro",
-    categoria: "Móvil & Hardware",
+    slug: "pre-diagnostico-ergonomico-nom-036",
+    titulo: "Plataforma de pre-diagnóstico ergonómico NOM-036",
+    categoria: "Plataformas",
     descripcion_corta:
-      "Dispositivo wearable para el seguimiento continuo de movimiento y análisis cinemático en procesos de rehabilitación.",
-    stack_tecnologico: ["Seeed XIAO BLE Sense", "LSM6DS3", "BLE"],
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Dispositivo wearable diseñado para el seguimiento continuo de movimiento y análisis cinemático en procesos de rehabilitación.</p>
-      <p><strong>Hardware:</strong> Seeed Studio XIAO BLE Sense con sensor IMU integrado (LSM6DS3).</p>
-    `,
+      "Plataforma que automatiza la evaluación de riesgo ergonómico conforme a la NOM-036-1-STPS-2018.",
+    rol: "Desarrollador único.",
+    trabajo: [
+      "A partir de la investigación publicada del Dr. Valenzuela: instrumento de 50 ítems en 5 criterios.",
+      "Generación automática de reportes.",
+    ],
+    estado: "En curso (2025 – presente). Artículo en preparación.",
+    stack_tecnologico: ["Next.js", "Supabase", "Python"],
+    colaboradores: ["Dr. Sergio Alberto Valenzuela Gómez (Universidad de Guadalajara)"],
+    // [DATO PENDIENTE: capturas]
   },
-
-  // ---------- Software & Datos ----------
   {
-    slug: "eeg-hmm",
-    titulo: "Análisis de Señales EEG con HMMs",
-    categoria: "Software & Datos",
-    descripcion_corta:
-      "Plataforma de neurociencia computacional para modelar la dinámica cerebral en paradigmas resting-state y Go/No-Go.",
-    stack_tecnologico: ["Python", "Gaussian HMM", "TDE-HMM", "EEG"],
-    imagen_miniatura: "/proyectos/eeg-hmm.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Plataforma de neurociencia computacional orientada a modelar la dinámica cerebral en paradigmas <em>resting-state</em> y <em>Go/No-Go</em>.</p>
-      <p><strong>Métodos:</strong> modelos ocultos de Markov (Gaussian HMM y TDE-HMM).</p>
-    `,
+    slug: "talleres-culturales-musica",
+    titulo: "Talleres culturales de música",
+    categoria: "Plataformas",
+    descripcion_corta: "Plataforma educativa para los talleres de música de CUTLAJO.",
+    trabajo: [
+      "LMS musical con entrenamiento auditivo y lectura de partitura.",
+      "Taller de guitarra con recital final.",
+    ],
+    estado: "Artículo de gestión educativa en preparación.",
+    stack_tecnologico: ["Next.js", "Supabase", "TypeScript"],
+    // [DATO PENDIENTE: capturas]
   },
   {
     slug: "pneumo-tiny-ml",
     titulo: "PneumoTinyML",
-    categoria: "Software & Datos",
+    categoria: "Proyectos académicos",
     descripcion_corta:
-      "Clasificación de radiografías de tórax con machine learning como apoyo en la detección de neumonía.",
-    stack_tecnologico: ["Machine Learning", "TinyML", "Visión por computadora"],
+      "Clasificador de radiografías de tórax para apoyo en la detección de neumonía, embebido en ESP32.",
+    estado: "Proyecto académico.",
+    stack_tecnologico: ["Edge Impulse", "PyTorch", "TensorFlow Lite", "ESP32"],
     imagen_miniatura: "/proyectos/pneumo-tiny-ml.png",
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Sistema de clasificación de imágenes médicas en radiografías de tórax mediante técnicas de machine learning para apoyo en la detección de neumonía.</p>
-    `,
   },
   {
-    slug: "simulacion-esquizofilano",
-    titulo: "Simulación de Esquizofilano (SPG)",
-    categoria: "Software & Datos",
+    slug: "miranda-ris",
+    titulo: "MIRANDA RIS/PACS",
+    categoria: "Proyectos académicos",
     descripcion_corta:
-      "Pipeline in silico para evaluar el esquizofilano de Schizophyllum commune como portador de ácidos nucleicos.",
-    stack_tecnologico: ["Python", "OpenMM", "MDTraj"],
-    contenido_completo: `
-      <h2>Sobre este proyecto</h2>
-      <p>Pipeline <em>in silico</em> para evaluar la viabilidad del esquizofilano derivado de <em>Schizophyllum commune</em> como portador de ácidos nucleicos.</p>
-      <p><strong>Herramientas:</strong> OpenMM y MDTraj.</p>
-    `,
+      "Plataforma web para gestionar estudios radiológicos con visor DICOM.",
+    estado: "Proyecto académico.",
+    stack_tecnologico: ["Python", "MySQL", "Docker", "Orthanc", "OHIF Viewer"],
+    imagen_miniatura: "/proyectos/miranda-ris.png",
+  },
+  {
+    slug: "smartknee",
+    titulo: "SmartKnee / Goniómetro Digital",
+    categoria: "Proyectos académicos",
+    descripcion_corta:
+      "Ecosistema integral de rehabilitación y medición de rango de movimiento (ROM) para rodilla.",
+    trabajo: [
+      "Hardware con ESP32 y sensores IMU.",
+      "Aplicación móvil en Flutter.",
+      "API backend en NestJS.",
+      "Portal web en Next.js.",
+    ],
+    estado: "Proyecto académico.",
+    stack_tecnologico: ["ESP32", "IMU", "Flutter", "NestJS", "Next.js"],
+    imagen_miniatura: "/proyectos/smart.png",
+  },
+  {
+    slug: "purple-bonnes",
+    titulo: "Purple Bonnes",
+    categoria: "Freelance",
+    descripcion_corta:
+      "E-commerce y portafolio digital desarrollado a medida para una artista plástica.",
+    trabajo: ["Pasarela de pagos integrada con Stripe."],
+    stack_tecnologico: ["Next.js", "Prisma", "Stripe"],
+    imagen_miniatura: "/proyectos/purple.png",
   },
 ];
 
