@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import CvDownload from "../components/CvDownload";
+import { ProyectoCardGrande } from "../components/ProyectoCard";
+import { proyectos } from "../data/proyectos";
 import {
   Globe,
   Cpu,
@@ -47,6 +49,10 @@ const staggerContainer: Variants = {
     },
   },
 };
+
+const destacados = proyectos
+  .filter((p) => p.grupo === "principal")
+  .slice(0, 3);
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -609,6 +615,48 @@ export default function Home() {
                     {item.desc}
                   </p>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ========================================= */}
+      {/* PROYECTOS DESTACADOS */}
+      {/* ========================================= */}
+
+      <section className="relative pb-32 px-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            margin: "-100px",
+          }}
+          variants={staggerContainer}
+          className="max-w-7xl mx-auto"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="mb-12 flex flex-wrap items-end justify-between gap-6"
+          >
+            <h2 className="text-5xl font-black tracking-tight">
+              Proyectos destacados
+            </h2>
+
+            <Link
+              href="/portafolio"
+              className="inline-flex items-center gap-2 font-semibold text-cyan-300 hover:text-cyan-200"
+            >
+              Ver todos
+              <ArrowRight size={18} />
+            </Link>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {destacados.map((proyecto) => (
+              <motion.div key={proyecto.slug} variants={fadeUp}>
+                <ProyectoCardGrande proyecto={proyecto} />
               </motion.div>
             ))}
           </div>
