@@ -11,8 +11,9 @@ const grotesque = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Miranda | Soluciones Multidisciplinarias",
-  description: "Portafolio de desarrollo web, software y aplicaciones.",
+  title: "Moisés García Miranda | Ingeniería Biomédica e investigación",
+  description:
+    "Portafolio de Moisés Alberto García Miranda: investigación en señales neurofisiológicas, dispositivos médicos y desarrollo de software para salud y educación.",
 };
 
 export default function RootLayout({

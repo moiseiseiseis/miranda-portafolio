@@ -133,7 +133,7 @@ export default function Footer() {
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           
           <p className="text-xs tracking-wide text-white/30">
-            © {currentYear} MIRANDA — Diseñado y desarrollado desde cero.
+            © {currentYear} Moisés Alberto García Miranda
           </p>
 
           <div className="flex items-center gap-2 text-xs text-white/20">
