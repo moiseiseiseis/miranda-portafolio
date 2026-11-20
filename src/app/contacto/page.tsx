@@ -429,7 +429,7 @@ export default function Contacto() {
                       </p>
 
                       <a
-                        href="mailto:mirandatrbx@gmail.com"
+                        href="mailto:pokemoy999@gmail.com"
                         className="
                           text-xl
                           font-semibold
@@ -438,7 +438,7 @@ export default function Contacto() {
                           hover:text-cyan-300
                         "
                       >
-                        mirandatrbx@gmail.com
+                        pokemoy999@gmail.com
                       </a>
                     </div>
                   </div>
@@ -483,7 +483,7 @@ export default function Contacto() {
                           text-white
                         "
                       >
-                        Guadalajara, Jalisco
+                        Tlajomulco de Zúñiga, Jalisco
                       </p>
                     </div>
                   </div>
@@ -836,6 +836,9 @@ export default function Contacto() {
                         <option value="">
                           Selecciona una opción
                         </option>
+                        <option value="investigacion">
+                          Colaboración académica / investigación
+                        </option>
 
                         <option value="web">
                           Desarrollo Web
@@ -988,7 +991,7 @@ export default function Contacto() {
               <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
 
               <span>
-                Actualmente disponible para nuevos proyectos.
+                Abierto a colaboraciones de investigación y proyectos de desarrollo.
               </span>
 
               <ArrowRight
