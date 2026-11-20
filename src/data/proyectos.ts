@@ -14,6 +14,8 @@ export interface Proyecto {
   titulo: string;
   categoria: Categoria;
   descripcion_corta: string;
+  semblanza?: string;
+  abstract?: string[];
   problema?: string;
   rol?: string;
   trabajo?: string[];
@@ -33,6 +35,13 @@ export const proyectos: Proyecto[] = [
     categoria: "Investigación",
     descripcion_corta:
       "Proyecto en curso que estudia la dinámica cerebral durante el control inhibitorio mediante modelos ocultos de Markov aplicados a EEG.",
+    semblanza:
+      "La pregunta de fondo es cómo se reorganiza la actividad cerebral cuando una persona tiene que frenar una respuesta. Para estudiarlo usamos EEG registrado durante una tarea Go/NoGo y un modelo que describe la señal como una secuencia de estados que se alternan en el tiempo. Mi parte consiste en adaptar ese modelo (TDE-HMM) a ensayos cortos y comprobar que los estados que encuentra reflejan la tarea y no un efecto del propio método.",
+    abstract: [
+      "Aplicar un modelo oculto de Markov con time-delay embedding (TDE-HMM) a EEG de 19 canales registrado en épocas cortas de tarea plantea dos riesgos. El primero es que el modelo aprenda la posición temporal dentro del ensayo en lugar del contenido de la señal: si la respuesta evocada domina la varianza, cada estado puede quedar ligado a un intervalo fijo de latencia y el modelo funcionaría como un reloj del ensayo. El segundo es que el número de estados se fija antes del ajuste, de modo que los estados solo pueden interpretarse como propiedades de la población si se reproducen en muestras independientes.",
+      "Para saber si los estados responden a lo que exige la tarea hace falta un paradigma en el que se conozca de antemano cuándo y en qué banda debería aparecer un cambio. El Go/NoGo cumple esa condición. Frente a los ensayos Go, los NoGo se asocian a una mayor negatividad frontocentral N2 (≈200-400 ms), a una mayor positividad P3 (≈300-500 ms) y a un aumento de la potencia theta frontal medial. Aquí esos marcadores sirven de referencia para ubicar la ventana y la banda en que deberían aparecer diferencias entre condiciones, con la cautela de que el contraste NoGo−Go mezcla la inhibición con la ejecución motora de los ensayos Go.",
+      "El objetivo es adaptar el TDE-HMM a este tipo de registro y evaluar si produce una descripción válida y sensible a la demanda de la tarea. Planteamos tres hipótesis. Las dos primeras son condiciones de validez del método: los estados no codifican la posición temporal dentro del ensayo (H1) y los estados identificados en una mitad de los participantes se reproducen en la otra mitad (H2). La tercera es la predicción sustantiva: la ocupación de los estados difiere entre ensayos Go y NoGo en una ventana posterior al estímulo compatible con los componentes N2/P3 y con la actividad theta asociada al control inhibitorio (H3).",
+    ],
     problema:
       "Caracterizar cómo se organiza la actividad cerebral en el tiempo durante una tarea Go/NoGo, en adultos y adolescentes.",
     rol: "Asistente de investigación. Mi línea principal es el enfoque TDE-HMM (time-delay embedding).",
@@ -48,7 +57,6 @@ export const proyectos: Proyecto[] = [
       "Laboratorio de Biohacking (CUTLAJO), Universidad de Guadalajara",
       "Asesor: Dr. Omar Paredes",
     ],
-    // [DATO PENDIENTE: capturas sin resultados numéricos]
   },
   {
     slug: "rumbo-rehab",

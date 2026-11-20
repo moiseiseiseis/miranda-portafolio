@@ -277,6 +277,22 @@ export default async function ProyectoDetalle({
               backdrop-blur-2xl
             "
           >
+            {proyecto.semblanza && (
+              <Bloque titulo="Semblanza">
+                <p>{proyecto.semblanza}</p>
+              </Bloque>
+            )}
+
+            {proyecto.abstract && proyecto.abstract.length > 0 && (
+              <Bloque titulo="Abstract">
+                <div className="space-y-5 text-base text-slate-400">
+                  {proyecto.abstract.map((parrafo) => (
+                    <p key={parrafo}>{parrafo}</p>
+                  ))}
+                </div>
+              </Bloque>
+            )}
+
             {proyecto.problema && (
               <Bloque titulo="Problema">
                 <p>{proyecto.problema}</p>
