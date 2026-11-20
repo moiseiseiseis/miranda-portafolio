@@ -9,10 +9,34 @@ export type Categoria =
   | "Proyectos académicos"
   | "Freelance";
 
+export type Grupo = "principal" | "academico" | "freelance";
+
+export const grupos: { id: Grupo; titulo: string; texto: string }[] = [
+  {
+    id: "principal",
+    titulo: "Investigación y desarrollo",
+    texto:
+      "Proyectos de investigación y plataformas en uso, con asesores o instituciones detrás.",
+  },
+  {
+    id: "academico",
+    titulo: "Proyectos académicos",
+    texto: "Proyectos finales de materias de la licenciatura.",
+  },
+  {
+    id: "freelance",
+    titulo: "Freelance",
+    texto: "Trabajo a la medida para clientes.",
+  },
+];
+
 export interface Proyecto {
   slug: string;
   titulo: string;
   categoria: Categoria;
+  grupo: Grupo;
+  // Estado breve que se muestra en la tarjeta del portafolio.
+  etiqueta_estado?: string;
   descripcion_corta: string;
   semblanza?: string;
   abstract?: string[];
@@ -33,6 +57,8 @@ export const proyectos: Proyecto[] = [
     slug: "eeg-hmm",
     titulo: "Investigación EEG con HMM",
     categoria: "Investigación",
+    grupo: "principal",
+    etiqueta_estado: "En curso",
     descripcion_corta:
       "Proyecto en curso que estudia la dinámica cerebral durante el control inhibitorio mediante modelos ocultos de Markov aplicados a EEG.",
     semblanza:
@@ -60,6 +86,8 @@ export const proyectos: Proyecto[] = [
     slug: "rumbo-rehab",
     titulo: "Rumbo Rehab",
     categoria: "Dispositivos médicos",
+    grupo: "principal",
+    etiqueta_estado: "Finalista Jalisco MedTech 2026",
     descripcion_corta:
       "Wearable de muñeca que reconoce ejercicios de rehabilitación de hombro, cuenta repeticiones y mide adherencia. Finalista de Jalisco MedTech 2026.",
     problema:
@@ -90,6 +118,8 @@ export const proyectos: Proyecto[] = [
     slug: "taller-programacion",
     titulo: "Plataforma de enseñanza de programación",
     categoria: "Plataformas",
+    grupo: "principal",
+    etiqueta_estado: "En curso",
     descripcion_corta:
       "Plataforma gratuita para enseñar programación a principiantes de distintas carreras (servicio social).",
     rol: "Desarrollo completo de la plataforma y del currículo.",
@@ -111,6 +141,8 @@ export const proyectos: Proyecto[] = [
     slug: "pre-diagnostico-ergonomico-nom-036",
     titulo: "Plataforma de pre-diagnóstico ergonómico NOM-036",
     categoria: "Plataformas",
+    grupo: "principal",
+    etiqueta_estado: "En curso",
     descripcion_corta:
       "Plataforma que automatiza la evaluación de riesgo ergonómico conforme a la NOM-036-1-STPS-2018.",
     rol: "Desarrollador único.",
@@ -127,6 +159,8 @@ export const proyectos: Proyecto[] = [
     slug: "talleres-culturales-musica",
     titulo: "Talleres culturales de música",
     categoria: "Plataformas",
+    grupo: "principal",
+    etiqueta_estado: "Artículo en preparación",
     descripcion_corta: "Plataforma educativa para los talleres de música de CUTLAJO.",
     trabajo: [
       "LMS musical con entrenamiento auditivo y lectura de partitura.",
@@ -140,6 +174,7 @@ export const proyectos: Proyecto[] = [
     slug: "pneumo-tiny-ml",
     titulo: "PneumoTinyML",
     categoria: "Proyectos académicos",
+    grupo: "academico",
     descripcion_corta:
       "Clasificador de radiografías de tórax para apoyo en la detección de neumonía, embebido en ESP32.",
     estado: "Proyecto académico.",
@@ -151,6 +186,7 @@ export const proyectos: Proyecto[] = [
     slug: "miranda-ris",
     titulo: "MIRANDA RIS/PACS",
     categoria: "Proyectos académicos",
+    grupo: "academico",
     descripcion_corta:
       "Plataforma web para gestionar estudios radiológicos con visor DICOM.",
     estado: "Proyecto académico.",
@@ -162,6 +198,7 @@ export const proyectos: Proyecto[] = [
     slug: "smartknee",
     titulo: "SmartKnee / Goniómetro Digital",
     categoria: "Proyectos académicos",
+    grupo: "academico",
     descripcion_corta:
       "Ecosistema integral de rehabilitación y medición de rango de movimiento (ROM) para rodilla.",
     trabajo: [
@@ -179,6 +216,7 @@ export const proyectos: Proyecto[] = [
     slug: "purple-bonnes",
     titulo: "Purple Bonnes",
     categoria: "Freelance",
+    grupo: "freelance",
     descripcion_corta:
       "E-commerce y portafolio digital desarrollado a medida para una artista plástica.",
     trabajo: ["Pasarela de pagos integrada con Stripe."],

@@ -1,18 +1,17 @@
 "use client";
 
-import Link from "next/link";
-
-import type { Proyecto } from "../../data/proyectos";
+import { grupos, type Proyecto } from "../../data/proyectos";
+import {
+  ProyectoCardCompacta,
+  ProyectoCardGrande,
+} from "../../components/ProyectoCard";
 
 import {
   motion,
   Variants,
 } from "framer-motion";
 
-import {
-  ArrowUpRight,
-  Layers3,
-} from "lucide-react";
+import { Layers3 } from "lucide-react";
 
 // =========================================
 // ANIMATIONS
@@ -223,301 +222,59 @@ export default function PortafolioClient({
       </section>
 
       {/* ========================================= */}
-      {/* PROJECT GRID */}
+      {/* SECCIONES POR GRUPO */}
       {/* ========================================= */}
 
-      <section className="relative px-6 pb-32">
+      <div className="relative space-y-28 px-6 pb-32">
+        {grupos.map((grupo) => {
+          const lista = proyectos.filter((p) => p.grupo === grupo.id);
+          if (lista.length === 0) return null;
 
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={staggerContainer}
-          className="
-            mx-auto
-            grid
-            max-w-7xl
-            grid-cols-1
-            gap-8
-            md:grid-cols-2
-            xl:grid-cols-3
-          "
-        >
+          const principal = grupo.id === "principal";
 
-          {proyectos && proyectos.length > 0 ? (
-            proyectos.map((proyecto, index) => (
-              <motion.div
-                key={proyecto.slug}
-                variants={fadeUp}
-              >
-
-                <Link
-                  href={`/portafolio/${proyecto.slug}`}
-                  className="
-                    group
-                    relative
-                    flex
-                    h-full
-                    flex-col
-                    overflow-hidden
-                    rounded-[2rem]
-                    border
-                    border-white/10
-                    bg-white/[0.03]
-                    backdrop-blur-2xl
-                    transition-all
-                    duration-500
-                    hover:-translate-y-3
-                    hover:border-cyan-400/30
-                    hover:shadow-[0_0_50px_rgba(34,211,238,0.12)]
-                  "
+          return (
+            <motion.section
+              key={grupo.id}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="mx-auto max-w-7xl"
+            >
+              <motion.div variants={fadeUp} className="mb-10 max-w-3xl space-y-3">
+                <h2
+                  className={
+                    principal
+                      ? "text-4xl font-black tracking-tight md:text-5xl"
+                      : "text-3xl font-black tracking-tight"
+                  }
                 >
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-indigo-500/10" />
-                  </div>
-
-                  {/* ========================================= */}
-                  {/* IMAGE */}
-                  {/* ========================================= */}
-
-                  <div
-                    className="
-                      relative
-                      h-56
-                      overflow-hidden
-                      border-b
-                      border-white/10
-                    "
-                  >
-
-                    {/* Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-indigo-500/10" />
-
-                    {proyecto.imagen_miniatura ? (
-                      <img
-                        src={proyecto.imagen_miniatura}
-                        alt={proyecto.titulo}
-                        className="
-                          h-full
-                          w-full
-                          object-cover
-                          transition-transform
-                          duration-700
-                          group-hover:scale-105
-                        "
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-
-                        <div className="text-center space-y-4">
-
-                          <div
-                            className="
-                              mx-auto
-                              flex
-                              h-20
-                              w-20
-                              items-center
-                              justify-center
-                              rounded-3xl
-                              border
-                              border-white/10
-                              bg-white/[0.03]
-                              backdrop-blur-xl
-                            "
-                          >
-                            <Layers3
-                              size={34}
-                              className="text-cyan-400"
-                            />
-                          </div>
-
-                          <div
-                            className="
-                              text-xs
-                              uppercase
-                              tracking-[0.3em]
-                              text-slate-500
-                            "
-                          >
-                            {proyecto.categoria}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Floating Gradient */}
-                    <div
-                      className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/70
-                        via-black/10
-                        to-transparent
-                      "
-                    />
-
-                    {/* Floating arrow */}
-                    <div
-                      className="
-                        absolute
-                        right-5
-                        top-5
-                        flex
-                        h-12
-                        w-12
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        border
-                        border-white/10
-                        bg-black/40
-                        text-white
-                        backdrop-blur-xl
-                        transition-all
-                        duration-500
-                        group-hover:translate-x-1
-                        group-hover:-translate-y-1
-                        group-hover:border-cyan-400/30
-                      "
-                    >
-                      <ArrowUpRight size={18} />
-                    </div>
-                  </div>
-
-                  {/* ========================================= */}
-                  {/* CONTENT */}
-                  {/* ========================================= */}
-
-                  <div className="relative z-10 flex flex-1 flex-col p-7">
-
-                    {/* Category */}
-                    <div
-                      className="
-                        mb-5
-                        inline-flex
-                        w-fit
-                        items-center
-                        rounded-full
-                        border
-                        border-cyan-400/20
-                        bg-cyan-500/10
-                        px-3
-                        py-1
-                        text-xs
-                        font-medium
-                        text-cyan-300
-                      "
-                    >
-                      {proyecto.categoria}
-                    </div>
-
-                    {/* Title */}
-                    <h2
-                      className="
-                        mb-4
-                        text-3xl
-                        font-black
-                        leading-tight
-                        tracking-tight
-                        text-white
-                        transition-colors
-                        duration-300
-                        group-hover:text-cyan-300
-                      "
-                    >
-                      {proyecto.titulo}
-                    </h2>
-
-                    {/* Description */}
-                    <p
-                      className="
-                        mb-8
-                        flex-grow
-                        leading-relaxed
-                        text-slate-400
-                      "
-                    >
-                      {proyecto.descripcion_corta}
-                    </p>
-
-                    {/* Divider */}
-                    <div className="mb-6 h-px w-full bg-white/10" />
-
-                    {/* Stack */}
-                    <div className="flex flex-wrap gap-2">
-
-                      {proyecto.stack_tecnologico?.map(
-                        (
-                          tech: string,
-                          i: number
-                        ) => (
-                          <span
-                            key={i}
-                            className="
-                              rounded-lg
-                              border
-                              border-white/10
-                              bg-white/[0.03]
-                              px-3
-                              py-1.5
-                              text-xs
-                              font-medium
-                              text-slate-300
-                              backdrop-blur-xl
-                            "
-                          >
-                            {tech}
-                          </span>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </Link>
+                  {grupo.titulo}
+                </h2>
+                <p className="text-lg text-slate-400">{grupo.texto}</p>
               </motion.div>
-            ))
-          ) : (
-            <div className="col-span-full py-32 text-center">
 
-              <div className="space-y-5">
-
-                <div
-                  className="
-                    mx-auto
-                    flex
-                    h-20
-                    w-20
-                    items-center
-                    justify-center
-                    rounded-3xl
-                    border
-                    border-white/10
-                    bg-white/[0.03]
-                  "
-                >
-                  <Layers3
-                    size={34}
-                    className="text-cyan-400"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="mb-3 text-2xl font-bold text-white">
-                    No hay proyectos disponibles
-                  </h3>
-
-                  <p className="text-slate-500">
-                    La base de datos está vacía o los
-                    proyectos aún no fueron cargados.
-                  </p>
-                </div>
+              <div
+                className={
+                  principal
+                    ? "grid grid-cols-1 gap-8 md:grid-cols-2"
+                    : "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                }
+              >
+                {lista.map((proyecto) => (
+                  <motion.div key={proyecto.slug} variants={fadeUp}>
+                    {principal ? (
+                      <ProyectoCardGrande proyecto={proyecto} />
+                    ) : (
+                      <ProyectoCardCompacta proyecto={proyecto} />
+                    )}
+                  </motion.div>
+                ))}
               </div>
-            </div>
-          )}
-        </motion.div>
-      </section>
+            </motion.section>
+          );
+        })}
+      </div>
     </main>
   );
 }
