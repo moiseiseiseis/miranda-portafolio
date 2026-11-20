@@ -180,7 +180,7 @@ export default async function ProyectoDetalle({
               {proyecto.descripcion_corta}
             </p>
 
-            {(proyecto.url_repositorio || proyecto.url_demo) && (
+            {(proyecto.url_repositorio || proyecto.url_demo || proyecto.url_instagram) && (
               <div className="flex flex-wrap gap-4">
                 {proyecto.url_repositorio && (
                   <a
@@ -229,6 +229,33 @@ export default async function ProyectoDetalle({
                     "
                   >
                     Visitar proyecto
+                    <ArrowUpRight size={16} />
+                  </a>
+                )}
+
+                {proyecto.url_instagram && (
+                  <a
+                    href={proyecto.url_instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      rounded-full
+                      border
+                      border-white/10
+                      bg-white/[0.03]
+                      px-6
+                      py-3
+                      font-semibold
+                      text-white
+                      transition-colors
+                      hover:border-cyan-400/30
+                      hover:text-cyan-300
+                    "
+                  >
+                    Ver en Instagram
                     <ArrowUpRight size={16} />
                   </a>
                 )}

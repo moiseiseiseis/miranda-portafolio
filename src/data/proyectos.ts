@@ -23,6 +23,7 @@ export interface Proyecto {
   imagen_miniatura?: string;
   url_demo?: string;
   url_repositorio?: string;
+  url_instagram?: string;
 }
 
 export const proyectos: Proyecto[] = [
@@ -75,6 +76,7 @@ export const proyectos: Proyecto[] = [
       "NestJS",
       "Next.js",
     ],
+    url_instagram: "https://www.instagram.com/rumborehab/",
     // [DATO PENDIENTE: capturas]
   },
   {
@@ -96,6 +98,7 @@ export const proyectos: Proyecto[] = [
       "Supervisión: Dra. María Teresa Romero Gutiérrez",
     ],
     imagen_miniatura: "/proyectos/taller-progra.png",
+    url_demo: "https://taller-programacion-sigma.vercel.app/",
   },
   {
     slug: "pre-diagnostico-ergonomico-nom-036",
@@ -135,6 +138,7 @@ export const proyectos: Proyecto[] = [
     estado: "Proyecto académico.",
     stack_tecnologico: ["Edge Impulse", "PyTorch", "TensorFlow Lite", "ESP32"],
     imagen_miniatura: "/proyectos/pneumo-tiny-ml.png",
+    url_demo: "https://pneumotiny-ml.vercel.app/",
   },
   {
     slug: "miranda-ris",
@@ -145,6 +149,7 @@ export const proyectos: Proyecto[] = [
     estado: "Proyecto académico.",
     stack_tecnologico: ["Python", "MySQL", "Docker", "Orthanc", "OHIF Viewer"],
     imagen_miniatura: "/proyectos/miranda-ris.png",
+    url_demo: "https://miranda-ris-pacs-showroom-1t8x.vercel.app/",
   },
   {
     slug: "smartknee",
@@ -161,6 +166,7 @@ export const proyectos: Proyecto[] = [
     estado: "Proyecto académico.",
     stack_tecnologico: ["ESP32", "IMU", "Flutter", "NestJS", "Next.js"],
     imagen_miniatura: "/proyectos/smart.png",
+    url_demo: "https://rodilladebronce1.vercel.app/",
   },
   {
     slug: "purple-bonnes",
@@ -171,6 +177,7 @@ export const proyectos: Proyecto[] = [
     trabajo: ["Pasarela de pagos integrada con Stripe."],
     stack_tecnologico: ["Next.js", "Prisma", "Stripe"],
     imagen_miniatura: "/proyectos/purple.png",
+    url_demo: "https://purple-bonnes.vercel.app/",
   },
 ];
 
