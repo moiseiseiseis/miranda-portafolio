@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CvDownload from "../components/CvDownload";
 import {
   Globe,
   Cpu,
@@ -297,49 +298,32 @@ export default function Home() {
                 variants={fadeUp}
                 className="space-y-6"
               >
-<h1
-  className="
-    text-4xl
-    md:text-[4rem]
-    leading-[0.9]
-    tracking-[-0.08em]
-    font-black
-  "
->
-  Entender
-  <br />
+<ul className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium text-cyan-300">
+                  {[
+                    "Señales neurofisiológicas",
+                    "Dispositivos médicos",
+                    "Software para salud",
+                  ].map((tag, i) => (
+                    <li key={tag} className="flex items-center gap-3">
+                      {i > 0 && <span className="text-slate-600">·</span>}
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
 
-  <span
-    className="
-      text-transparent
-      bg-clip-text
-      bg-gradient-to-r
-      from-cyan-400
-      via-blue-500
-      to-indigo-500
-    "
-  >
-    sistemas
-  </span>
-
-  <br />
-
-  para construir
-  <br />
-
-  <span
-    className="
-      text-transparent
-      bg-clip-text
-      bg-gradient-to-r
-      from-cyan-400
-      via-blue-500
-      to-indigo-500
-    "
-  >
-    mejores herramientas
-  </span>
-</h1>
+                <h1
+                  className="
+                    text-4xl
+                    md:text-[4rem]
+                    leading-[0.95]
+                    tracking-[-0.06em]
+                    font-black
+                  "
+                >
+                  Moisés Alberto
+                  <br />
+                  García Miranda
+                </h1>
 
                 <p
                   className="
@@ -350,10 +334,10 @@ export default function Home() {
                     text-slate-400
                   "
                 >
-                  Desarrollo software, hardware y herramientas
-                  computacionales para investigación,
-                  visualización de datos y sistemas
-                  inteligentes.
+                  Estudiante de Ingeniería Biomédica (UdeG).
+                  Asistente de investigación en modelado de EEG
+                  con modelos ocultos de Markov y desarrollador
+                  de hardware y software para salud y educación.
                 </p>
               </motion.div>
 
@@ -380,7 +364,7 @@ export default function Home() {
                     hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
                   "
                 >
-                  Explorar proyectos
+                  Ver proyectos
 
                   <ArrowRight
                     size={18}
@@ -388,23 +372,7 @@ export default function Home() {
                   />
                 </Link>
 
-                <Link
-                  href="/sobre-mi"
-                  className="
-                    rounded-full
-                    border border-white/10
-                    bg-white/[0.03]
-                    backdrop-blur-xl
-                    px-8
-                    py-4
-                    font-medium
-                    text-white
-                    transition-all
-                    hover:bg-white/10
-                  "
-                >
-                  Sobre mí
-                </Link>
+                <CvDownload />
               </motion.div>
             </motion.div>
 
@@ -586,10 +554,10 @@ export default function Home() {
 
             {[
               {
-                icon: <Globe className="text-cyan-400" />,
-                title: "Software",
+                icon: <Database className="text-emerald-400" />,
+                title: "Datos & investigación",
                 desc:
-                  "Plataformas web, interfaces complejas y arquitecturas full-stack.",
+                  "Análisis de EEG con modelos ocultos de Markov, procesamiento de señales y machine learning.",
               },
               {
                 icon: <Cpu className="text-indigo-400" />,
@@ -598,10 +566,10 @@ export default function Home() {
                   "Integración de sensores, microcontroladores y sistemas físicos.",
               },
               {
-                icon: <Database className="text-emerald-400" />,
-                title: "Datos & ML",
+                icon: <Globe className="text-cyan-400" />,
+                title: "Software",
                 desc:
-                  "Análisis computacional, machine learning y modelado de sistemas.",
+                  "Plataformas web, interfaces complejas y arquitecturas full-stack.",
               },
             ].map((item, i) => (
               <motion.div
@@ -691,12 +659,7 @@ export default function Home() {
                 tracking-tight
               "
             >
-              Construyamos algo
-              <br />
-
-              <span className="text-cyan-400">
-                difícil.
-              </span>
+              ¿Colaboramos?
             </h2>
 
             <p
@@ -709,9 +672,9 @@ export default function Home() {
                 text-slate-400
               "
             >
-              Me interesan proyectos donde convergen
-              investigación, ingeniería y sistemas
-              inteligentes.
+              Me interesan proyectos donde se cruzan
+              investigación, ingeniería biomédica y
+              software.
             </p>
 
             <Link
