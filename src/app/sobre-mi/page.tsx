@@ -685,9 +685,7 @@ export default function SobreMi() {
                   text-white
                 "
               >
-                Construyamos algo
-                <br />
-                interesante.
+                ¿Colaboramos?
               </h2>
 
               <p
@@ -698,9 +696,9 @@ export default function SobreMi() {
                   text-slate-400
                 "
               >
-                Si tu proyecto involucra ingeniería,
-                investigación o sistemas complejos,
-                probablemente vamos a llevarnos bien.
+                Me interesan proyectos donde se cruzan
+                investigación, ingeniería biomédica y
+                software.
               </p>
 
               <Link
