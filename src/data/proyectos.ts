@@ -82,8 +82,9 @@ export const proyectos: Proyecto[] = [
       "NestJS",
       "Next.js",
     ],
+    imagen_miniatura: "/proyectos/rumbo-rehab.png",
+    url_demo: "https://rumbo-rehab-web.vercel.app/",
     url_instagram: "https://www.instagram.com/rumborehab/",
-    // [DATO PENDIENTE: capturas]
   },
   {
     slug: "taller-programacion",
