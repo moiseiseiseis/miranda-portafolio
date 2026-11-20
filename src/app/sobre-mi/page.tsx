@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 
+import CvDownload from "../../components/CvDownload";
+
 import {
   motion,
   Variants,
 } from "framer-motion";
 
 import {
+  Activity,
   Code2,
   Cpu,
-  Database,
   ArrowRight,
   BrainCircuit,
   Layers3,
@@ -56,34 +58,65 @@ export default function SobreMi() {
 
   const skills = [
     {
-      icon: <Code2 size={26} />,
-      title: "Frontend & Web",
+      icon: <Activity size={26} />,
+      title: "Análisis científico",
       items: [
-        "Next.js & React",
+        "Python (hmmlearn, scikit-learn, NetworkX)",
+        "HMM (Forward, Viterbi, Baum-Welch)",
+        "Procesamiento de EEG/EMG",
+        "LaTeX",
+      ],
+    },
+    {
+      icon: <BrainCircuit size={26} />,
+      title: "Machine learning",
+      items: ["PyTorch", "TensorFlow Lite", "Edge Impulse", "TinyML"],
+    },
+    {
+      icon: <Code2 size={26} />,
+      title: "Software",
+      items: [
+        "TypeScript, React y Next.js",
+        "NestJS, Node.js y Flask",
+        "Flutter",
         "Tailwind CSS",
-        "TypeScript",
-        "Arquitectura UI/UX",
+        "Supabase/PostgreSQL y MySQL",
+        "Docker",
+        "Unity",
       ],
     },
     {
       icon: <Cpu size={26} />,
-      title: "Móvil & Hardware",
+      title: "Hardware",
       items: [
-        "Flutter",
-        "IoT & Sensores",
-        "ESP32 & Arduino",
-        "Prototipado electrónico",
+        "C/C++",
+        "ESP32, nRF52840 y Arduino",
+        "KiCad y Proteus",
+        "Amplificadores de instrumentación",
       ],
     },
+  ];
+
+  const trayectoria = [
     {
-      icon: <Database size={26} />,
-      title: "Backend & Datos",
-      items: [
-        "Supabase & PostgreSQL",
-        "Node.js & Flask",
-        "Python",
-        "Procesamiento de señales",
-      ],
+      fecha: "2021 – 2022",
+      texto: "Licenciatura en Física (estudios parciales), CUCEI, UdeG",
+    },
+    {
+      fecha: "2023 – presente",
+      texto: "Licenciatura en Ingeniería Biomédica, CUTLAJO, UdeG (promedio 9.3/10)",
+    },
+    {
+      fecha: "Ene 2025 – presente",
+      texto: "Asistente de investigación, BIL (CUCEI) y Laboratorio de Biohacking (CUTLAJO)",
+    },
+    {
+      fecha: "2025 – presente",
+      texto: "Plataforma de enseñanza de programación (servicio social) y plataforma NOM-036",
+    },
+    {
+      fecha: "2026",
+      texto: "Finalista de Jalisco MedTech con Rumbo Rehab",
     },
   ];
 
@@ -229,6 +262,8 @@ export default function SobreMi() {
                     desde arquitecturas web y hardware hasta
                     dinámica cerebral y procesamiento de señales.
                   </p>
+
+                  <CvDownload />
                 </div>
 
                 {/* Floating cards */}
@@ -428,6 +463,59 @@ export default function SobreMi() {
             </div>
           </motion.section>
 
+          <motion.section
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid gap-16 lg:grid-cols-[1.4fr_1fr]"
+          >
+            <motion.div variants={fadeUp} className="space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+                  Trayectoria
+                </h2>
+                <div className="h-px w-full bg-white/10" />
+              </div>
+
+              <ol className="relative space-y-8 border-l border-white/10 pl-8">
+                {trayectoria.map((item) => (
+                  <li key={item.texto} className="relative">
+                    <span className="absolute -left-[2.4rem] top-1.5 h-3 w-3 rounded-full border-2 border-cyan-400 bg-black" />
+                    <p className="text-sm font-semibold tracking-wide text-cyan-300">
+                      {item.fecha}
+                    </p>
+                    <p className="mt-1 text-lg leading-relaxed text-slate-300">
+                      {item.texto}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="space-y-10 lg:pt-24">
+              <div className="space-y-4">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-cyan-300">
+                  Idiomas
+                </h3>
+                <ul className="space-y-2 text-lg text-slate-300">
+                  <li>Español (nativo)</li>
+                  <li>Inglés (B2)</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-cyan-300">
+                  Afiliaciones
+                </h3>
+                <p className="text-lg leading-relaxed text-slate-300">
+                  Miembro estudiantil de IEEE Engineering in Medicine and
+                  Biology Society (EMBS).
+                </p>
+              </div>
+            </motion.div>
+          </motion.section>
+
           {/* ========================================= */}
           {/* SKILLS */}
           {/* ========================================= */}
@@ -462,7 +550,7 @@ export default function SobreMi() {
               </p>
             </motion.div>
 
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-8 md:grid-cols-2">
 
               {skills.map((skill, index) => (
                 <motion.div
