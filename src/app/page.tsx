@@ -64,7 +64,7 @@ export default function Home() {
 
     let animationFrameId: number;
 
-    const particles: any[] = [];
+    const particles: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
     const particleCount = 120;
 
     const mouse = {

@@ -19,7 +19,10 @@ import {
 export default function Navbar() {
   const pathname = usePathname();
 
-  const [isOpen, setIsOpen] = useState(false);
+  // Guardar la ruta en la que se abrió el menú lo cierra solo al navegar,
+  // sin un efecto que llame a setState.
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
+  const isOpen = openedAt === pathname;
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -37,14 +40,6 @@ export default function Navbar() {
       href: "/sobre-mi",
     },
   ];
-
-  // =========================================
-  // CLOSE MENU ON ROUTE CHANGE
-  // =========================================
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   // =========================================
   // LOCK SCROLL MOBILE
@@ -324,7 +319,7 @@ export default function Navbar() {
 
           <button
             onClick={() =>
-              setIsOpen(!isOpen)
+              setOpenedAt(isOpen ? null : pathname)
             }
             className="
               relative
