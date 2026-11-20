@@ -3,7 +3,7 @@
 import Link from "next/link";
 import CvDownload from "../components/CvDownload";
 import { ProyectoCardGrande } from "../components/ProyectoCard";
-import { proyectos } from "../data/proyectos";
+import { proyectosVisibles } from "../data/proyectos";
 import {
   Globe,
   Cpu,
@@ -50,7 +50,7 @@ const staggerContainer: Variants = {
   },
 };
 
-const destacados = proyectos
+const destacados = proyectosVisibles
   .filter((p) => p.grupo === "principal")
   .slice(0, 3);
 

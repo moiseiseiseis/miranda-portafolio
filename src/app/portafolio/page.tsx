@@ -1,6 +1,6 @@
-import { proyectos } from "../../data/proyectos";
+import { proyectosVisibles } from "../../data/proyectos";
 import PortafolioClient from "./PortafolioClient";
 
 export default function Portafolio() {
-  return <PortafolioClient proyectos={proyectos} />;
+  return <PortafolioClient proyectos={proyectosVisibles} />;
 }

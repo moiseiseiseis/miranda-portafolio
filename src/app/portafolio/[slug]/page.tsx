@@ -7,12 +7,12 @@ import {
   Layers3,
 } from "lucide-react";
 
-import { getProyecto, proyectos } from "../../../data/proyectos";
+import { getProyecto, proyectosVisibles } from "../../../data/proyectos";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return proyectos.map((p) => ({ slug: p.slug }));
+  return proyectosVisibles.map((p) => ({ slug: p.slug }));
 }
 
 // =========================================

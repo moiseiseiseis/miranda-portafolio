@@ -35,6 +35,8 @@ export interface Proyecto {
   titulo: string;
   categoria: Categoria;
   grupo: Grupo;
+  // true = no se muestra en la web (ni tarjeta ni página).
+  oculto?: boolean;
   // Estado breve que se muestra en la tarjeta del portafolio.
   etiqueta_estado?: string;
   descripcion_corta: string;
@@ -156,10 +158,23 @@ export const proyectos: Proyecto[] = [
     // [DATO PENDIENTE: capturas]
   },
   {
+    slug: "purple-bonnes",
+    titulo: "Purple Bonnes",
+    categoria: "Freelance",
+    grupo: "principal",
+    descripcion_corta:
+      "E-commerce y portafolio digital desarrollado a medida para una artista plástica.",
+    trabajo: ["Pasarela de pagos integrada con Stripe."],
+    stack_tecnologico: ["Next.js", "Prisma", "Stripe"],
+    imagen_miniatura: "/proyectos/purple.png",
+    url_demo: "https://purple-bonnes.vercel.app/",
+  },
+  {
     slug: "talleres-culturales-musica",
     titulo: "Talleres culturales de música",
     categoria: "Plataformas",
     grupo: "principal",
+    oculto: true,
     etiqueta_estado: "Artículo en preparación",
     descripcion_corta: "Plataforma educativa para los talleres de música de CUTLAJO.",
     trabajo: [
@@ -212,20 +227,10 @@ export const proyectos: Proyecto[] = [
     imagen_miniatura: "/proyectos/smart.png",
     url_demo: "https://rodilladebronce1.vercel.app/",
   },
-  {
-    slug: "purple-bonnes",
-    titulo: "Purple Bonnes",
-    categoria: "Freelance",
-    grupo: "freelance",
-    descripcion_corta:
-      "E-commerce y portafolio digital desarrollado a medida para una artista plástica.",
-    trabajo: ["Pasarela de pagos integrada con Stripe."],
-    stack_tecnologico: ["Next.js", "Prisma", "Stripe"],
-    imagen_miniatura: "/proyectos/purple.png",
-    url_demo: "https://purple-bonnes.vercel.app/",
-  },
 ];
 
+export const proyectosVisibles = proyectos.filter((p) => !p.oculto);
+
 export function getProyecto(slug: string): Proyecto | undefined {
-  return proyectos.find((p) => p.slug === slug);
+  return proyectosVisibles.find((p) => p.slug === slug);
 }
