@@ -175,7 +175,8 @@ export default function PortafolioClient({
 
             <h1
               className="
-                text-6xl
+                text-5xl
+                sm:text-6xl
                 md:text-[7rem]
                 leading-[0.9]
                 tracking-[-0.08em]

@@ -545,7 +545,7 @@ export default function Home() {
             variants={fadeUp}
             className="max-w-3xl mb-20"
           >
-            <h2 className="text-5xl font-black tracking-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">
               Ingeniería aplicada a sistemas reales.
             </h2>
 
@@ -640,7 +640,7 @@ export default function Home() {
             variants={fadeUp}
             className="mb-12 flex flex-wrap items-end justify-between gap-6"
           >
-            <h2 className="text-5xl font-black tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
               Proyectos destacados
             </h2>
 
@@ -686,8 +686,10 @@ export default function Home() {
             rounded-[3rem]
             border border-white/10
             bg-white/[0.03]
-            px-10
-            py-24
+            px-6
+            py-16
+            sm:px-10
+            sm:py-24
             text-center
             backdrop-blur-3xl
           "
@@ -701,7 +703,8 @@ export default function Home() {
             <h2
               className="
                 mb-8
-                text-5xl
+                text-4xl
+                sm:text-5xl
                 md:text-6xl
                 font-black
                 tracking-tight
@@ -733,7 +736,9 @@ export default function Home() {
                 gap-3
                 rounded-full
                 bg-cyan-500
-                px-10
+                whitespace-nowrap
+                px-8
+                sm:px-10
                 py-5
                 font-semibold
                 text-black

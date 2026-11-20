@@ -313,7 +313,7 @@ export default function Contacto() {
           {/* GRID */}
           {/* ========================================= */}
 
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr]">
 
             {/* ========================================= */}
             {/* LEFT SIDE */}
@@ -335,7 +335,8 @@ export default function Contacto() {
                   border
                   border-white/10
                   bg-white/[0.03]
-                  p-8
+                  p-6
+                  sm:p-8
                   backdrop-blur-2xl
                 "
               >
@@ -388,7 +389,8 @@ export default function Contacto() {
                   border
                   border-white/10
                   bg-white/[0.03]
-                  p-8
+                  p-6
+                  sm:p-8
                   backdrop-blur-2xl
                 "
               >
@@ -415,7 +417,7 @@ export default function Contacto() {
                       <Mail size={24} />
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="min-w-0 space-y-2">
 
                       <p
                         className="
@@ -431,7 +433,9 @@ export default function Contacto() {
                       <a
                         href="mailto:pokemoy999@gmail.com"
                         className="
-                          text-xl
+                          break-all
+                          text-lg
+                          sm:text-xl
                           font-semibold
                           text-white
                           transition-colors
@@ -570,7 +574,8 @@ export default function Contacto() {
                 border
                 border-white/10
                 bg-white/[0.03]
-                p-8
+                p-6
+                sm:p-8
                 md:p-10
                 backdrop-blur-2xl
               "

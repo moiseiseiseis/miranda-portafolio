@@ -272,7 +272,8 @@ export default async function ProyectoDetalle({
               border
               border-white/10
               bg-white/[0.03]
-              px-8
+              px-6
+              sm:px-8
               md:px-12
               backdrop-blur-2xl
             "

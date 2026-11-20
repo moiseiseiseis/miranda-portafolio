@@ -710,7 +710,9 @@ export default function SobreMi() {
                   gap-3
                   rounded-full
                   bg-cyan-400
-                  px-10
+                  whitespace-nowrap
+                  px-8
+                  sm:px-10
                   py-5
                   text-lg
                   font-bold
