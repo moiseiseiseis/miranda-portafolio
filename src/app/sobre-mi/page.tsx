@@ -289,8 +289,8 @@ export default function SobreMi() {
                     </h3>
 
                     <p className="leading-relaxed text-slate-400">
-                      EEG, microestados cerebrales,
-                      HMMs y análisis de dinámica neural.
+                      EEG, modelos ocultos de Markov y
+                      análisis de dinámica neural.
                     </p>
                   </div>
 

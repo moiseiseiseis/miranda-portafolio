@@ -47,7 +47,7 @@ export const proyectos: Proyecto[] = [
       "Laboratorio de Biohacking (CUTLAJO), Universidad de Guadalajara",
       "Asesor: Dr. Omar Paredes",
     ],
-    imagen_miniatura: "/proyectos/eeg-hmm.png",
+    // [DATO PENDIENTE: capturas sin resultados numéricos]
   },
   {
     slug: "rumbo-rehab",
